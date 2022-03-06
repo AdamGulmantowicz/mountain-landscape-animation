@@ -1,0 +1,275 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .box {
+  width: 300px;
+  height: 300px;
+  background-color: aquamarine;
+  border: 5px inset orangered;
+  animation-name: rotate;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  animation-delay: 2s;
+  animation-timing-function: cubic-bezier(0.36, 1.98, 0.92, -0.91);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+    background-color: red;
+  }
+
+  50% {
+    background-color: green;
+  }
+
+  to {
+    transform: rotate(360deg);
+    background-color: blue;
+  }
+} */
+
+/* Animations */
+
+@keyframes clouds {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  30% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes day {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes night {
+  0% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Styles */
+
+.scene {
+  border: 15px solid #111;
+  width: 277px;
+  height: 544px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #111;
+  position: relative;
+}
+
+.sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.day,
+.night {
+  animation-timing-function: linear;
+}
+
+.night {
+  animation: night 10s infinite;
+}
+
+.day {
+  animation: day 10s infinite;
+}
+
+.sky.day {
+  background: linear-gradient(
+    360deg,
+    #fbe57f 33%,
+    #fdca8e 40%,
+    #feae9d 48%,
+    #ffa3a3 52%,
+    #f8a3a3 55%,
+    #e4a3a3 59%,
+    #c3a4a4 64%,
+    #96a5a4 73.44%,
+    #5da6a5 83.85%,
+    #51a6a5 99.99%,
+    #06385d 100%
+  );
+}
+
+.sky.night {
+  background: linear-gradient(
+    360deg,
+    #0e4764 15%,
+    #0f5771 24%,
+    #13899a 53%,
+    #149daa 67%,
+    #1396a5 73%,
+    #118498 80%,
+    #0d6683 89%,
+    #083d65 99%,
+    #073660 100%
+  );
+}
+
+.clouds {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  z-index: 3;
+  animation: clouds infinite 10s;
+}
+
+.mountains {
+  position: absolute;
+  left: 0;
+  z-index: 5;
+  width: 263px;
+  height: 318px;
+  bottom: 0;
+}
+
+@keyframes sun {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+
+  30% {
+    transform: rotate(0deg);
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotate(55deg);
+    opacity: 1;
+  }
+
+  70% {
+    transform: rotate(110deg);
+  }
+
+  100% {
+    transform: rotate(110deg);
+  }
+}
+
+.sun,
+.moon {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  transform-origin: 300px 0;
+  background-blend-mode: screen;
+  mix-blend-mode: screen;
+  animation: sun infinite 10s linear;
+}
+
+.moon {
+  animation-delay: -5s;
+}
+
+@keyframes shooting-star {
+  0% {
+    top: -139px;
+    right: -220px;
+    opacity: 1;
+  }
+
+  50% {
+    top: 320px;
+    right: 20px;
+    opacity: 0;
+  }
+
+  100% {
+    top: 320px;
+    right: 20px;
+    opacity: 0;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  background-blend-mode: screen;
+  mix-blend-mode: screen;
+  animation: shooting-star 10s infinite ease-out;
+}
+
+.stars {
+  position: absolute;
+  background-blend-mode: screen;
+  mix-blend-mode: screen;
+  top: 10px;
+  left: 10px;
+  animation-delay: -5s;
+}
